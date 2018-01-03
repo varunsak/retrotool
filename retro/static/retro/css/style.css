@@ -1,3 +1,7 @@
+.container-fluid {
+    padding-right: 50px;
+    padding-left: 50px;
+}
 .retroTitle{
     background: #417690;
     marging-top:-100px;
