@@ -1,0 +1,95 @@
+{% extends 'retro/base.html' %}
+{% block breadcrumbs %}
+{{ block.super }} » <a href="{% url 'edit' retro.id %}">Edit</a>
+{% endblock %}
+{% block content %}
+{% load retro_extras %}
+
+<h3 class="form-header text-center">Update Retro</h3>
+<form method="post" class="form-horizontal" role="form">{% csrf_token %}
+    <div class="form-group">
+        <label for="id_project" class="col-sm-5 control-label">
+            Project
+        </label>
+        <div class="col-sm-2">
+            {{ form.project|addcss:'form-control' }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="id_team" class="col-sm-5 control-label">
+            <span class="header">Team</span>
+        </label>
+        <div class="col-sm-2">
+            {{ form.team|addcss:'form-control' }}
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="id_sprint" class="col-sm-5 control-label">
+            Sprint
+        </label>
+        <div class="col-sm-2">
+            {{ form.sprint|addcss:'form-control' }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="id_description" class="col-sm-5 control-label">
+            Retro Item
+        </label>
+        <div class="col-sm-2">
+            <textarea id="id_description" name="description" class="form-control">{{ form.description.value }}</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="id_action_item" class="col-sm-5 control-label">
+            Action Item
+        </label>
+        <div class="col-sm-2">
+            {{ form.action_item|addcss:'form-control' }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="id_owner" class="col-sm-5 control-label">
+            Owner
+        </label>
+        <div class="col-sm-2">
+            {{ form.owner|addcss:'form-control' }}
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="id_eta" class="col-sm-5 control-label">
+            ETA
+        </label>
+        <div class="col-sm-2">
+            {{ form.eta|addcss:'form-control' }}
+            <script type="text/javascript">
+                $( "#id_eta" ).datepicker();
+            </script>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="id_status" class="col-sm-5 control-label">
+            Status
+        </label>
+        <div class="col-sm-2">
+            {{ form.status|addcss:'form-control' }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-5"></div>
+        <div class=" col-sm-6">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a class="btn btn-warning" href="{% url 'delete' retro.id %}">Delete</a>
+        </div>
+    </div>
+</form>
+{% endblock %}
