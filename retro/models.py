@@ -52,3 +52,12 @@ class Retro(models.Model):
 
     def __str__(self):
         return self.description
+
+class Feedback(models.Model):
+    name = models.CharField('Name', max_length=100)
+    title = models.CharField('Title', max_length=200)
+    description = models.CharField('Description', max_length=500)
+
+    def __str__(self):
+        return self.title
+

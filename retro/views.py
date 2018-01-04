@@ -34,3 +34,11 @@ class DeleteRetro(LoginRequiredMixin, SuccessMessageMixin, generic.DeleteView):
     template_name = 'retro/retro_confirm_delete.html'
     success_url = reverse_lazy('index')
     success_message = "Retro item was deleted successfully"
+
+
+class RetroFeedback(SuccessMessageMixin, generic.CreateView):
+    model = Feedback
+    fields = ['name', 'title', 'description']
+    template_name = 'retro/feedback.html'
+    success_url = reverse_lazy('index')
+    success_message = "Thank you for your valuable feedback!"
