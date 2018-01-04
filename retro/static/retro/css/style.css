@@ -3,7 +3,7 @@
     padding-left: 50px;
 }
 .retroTitle{
-    background: #417690;
+    background-image: url("../images/headerbg.jpg");
     marging-top:-100px;
 }
 
@@ -12,8 +12,8 @@
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: #417690;
-   color: white;
+   background-image: url("../images/headerbg.jpg");
+   color: black;
    text-align: center;
    z-index: 200;
    font: italic bold 20px/30px Georgia, serif;
@@ -85,10 +85,9 @@ body {
     padding-top: 40px;
 
 }
-#welcomuser {
-    font-weight: bold;
-    color: white;
-}
 .form-header {
     padding-right: 20px;
+}
+.rightPanel{
+    color:white;font-weight:bold
 }
