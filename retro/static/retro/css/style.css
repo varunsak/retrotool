@@ -112,3 +112,8 @@ body {
 .rightPanel:hover{
     color:orange;
 }
+
+.new_pass{
+    margin-left:-280px;
+    color:grey;
+}
