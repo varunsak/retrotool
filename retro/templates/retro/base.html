@@ -31,7 +31,7 @@
             <span class="rightPanel">/</span>
             <a href="{% url 'logout' %}" class="rightPanel">Logout</a>
             {% else %}
-            <a href="{% url 'login' %}" class="rightPanel">Login</a>
+            <a href="{% url 'login' %}" class="rightPanel"><span class="glyphicon glyphicon-user"></span>&nbsp;Login</a>
             {% endif %}
         </div>
 
@@ -39,7 +39,7 @@
     <ul class="breadcrumb">
         <div class="item">
             {% block breadcrumbs %}
-            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'index' %}"><span class="glyphicon glyphicon-home"></span> Home</a>
             {% endblock %}
         </div>
 
