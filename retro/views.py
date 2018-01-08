@@ -8,9 +8,7 @@ from .models import *
 class IndexView(generic.ListView):
     template_name = 'retro/index.html'
     context_object_name = 'retro_list'
-
-    def get_queryset(self):
-        return Retro.objects.all()
+    queryset = Retro.objects.order_by('-status', '-updated_on')
 
 
 class CreateRetro(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):

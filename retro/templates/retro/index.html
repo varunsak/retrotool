@@ -19,12 +19,13 @@
                     <th>Owner</th>
                     <th>Status</th>
                     <th>ETA</th>
+                    <th>Last Modified On</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for item in retro_list %}
                 <tr>
-                    <td><a href="{% url 'edit' item.id %}">{{ item.id }}</a></td>
+                    <td><a href="{% url 'edit' item.id %}">RETRO{{ item.id }}</a></td>
                     <td>{{ item.project }}</td>
                     <td>{{ item.team }}</td>
                     <td>{{ item.sprint }}</td>
@@ -36,6 +37,7 @@
                         <div class="{{ item.status }}">{{ item.status }}</div>
                     </td>
                     <td>{{ item.eta }}</td>
+                    <td>{{ item.updated_on }}</td>
                 </tr>
                 {% endfor %}
                 </tbody>

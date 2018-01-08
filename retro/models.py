@@ -36,7 +36,7 @@ class Category(models.Model):
         return self.category
 
 
-STATUSLIST = (
+STATUS_LIST = (
     ('O', 'Open'),
     ('I', 'In-Progress'),
     ('C', 'Complete'),
@@ -50,9 +50,11 @@ class Retro(models.Model):
     description = models.TextField('Description', max_length=200)
     action_item = models.CharField('Action Item', max_length=200)
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE)
-    status = models.CharField(max_length=1, choices=STATUSLIST)
+    status = models.CharField(max_length=1, choices=STATUS_LIST)
     eta = models.DateField('ETA')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    created_on = models.DateTimeField('Created On', auto_now_add=True)
+    updated_on = models.DateTimeField('Last Modified On', auto_now=True)
 
     def __str__(self):
         return self.description
