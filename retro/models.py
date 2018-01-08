@@ -29,17 +29,6 @@ class Owner(models.Model):
         return self.owner_name
 
 
-class Status(models.Model):
-    status_item = models.CharField('Status', max_length=50)
-
-    class Meta:
-        verbose_name = 'Status'
-        verbose_name_plural = 'Statuses'
-
-    def __str__(self):
-        return self.status_item
-
-
 class Category(models.Model):
     category = models.CharField('Category', max_length=200)
 
@@ -47,14 +36,21 @@ class Category(models.Model):
         return self.category
 
 
+STATUSLIST = (
+    ('O', 'Open'),
+    ('I', 'In-Progress'),
+    ('C', 'Complete'),
+)
+
+
 class Retro(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
     sprint = models.ForeignKey(Sprint, on_delete=models.CASCADE)
-    description = models.CharField('Description', max_length=200)
+    description = models.TextField('Description', max_length=200)
     action_item = models.CharField('Action Item', max_length=200)
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE)
-    status = models.ForeignKey(Status, on_delete=models.CASCADE)
+    status = models.CharField(max_length=1, choices=STATUSLIST)
     eta = models.DateField('ETA')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
@@ -65,7 +61,7 @@ class Retro(models.Model):
 class Feedback(models.Model):
     name = models.CharField('Name', max_length=100)
     title = models.CharField('Title', max_length=200)
-    description = models.CharField('Description', max_length=500)
+    description = models.TextField('Description', max_length=500)
 
     def __str__(self):
         return self.title
