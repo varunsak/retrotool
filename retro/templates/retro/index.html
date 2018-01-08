@@ -24,7 +24,7 @@
                 <tbody>
                 {% for item in retro_list %}
                 <tr>
-                    <td><a href="{% url 'edit' item.id %}">{{ item.id }}</a></td>
+                    <td><a href="{% url 'edit' item.id %}">{{ item.project}}{{ item.id }}</a></td>
                     <td>{{ item.project }}</td>
                     <td>{{ item.team }}</td>
                     <td>{{ item.sprint }}</td>
@@ -32,7 +32,33 @@
                     <td>{{ item.description }}</td>
                     <td>{{ item.action_item }}</td>
                     <td>{{ item.owner }}</td>
-                    <td>{{ item.status }}</td>
+                    <td style="padding-top: 1px;">
+                    <span>
+                        <output style="visibility: hidden;width:0px;height:0px;" id="myProgress{{ item.id }}">{{ item.status }}</output>
+                        <div id="myBar{{ item.id }}" class="tooltip">
+                            <span id="tooltext{{ item.id }}"></span>
+                        </div>
+
+                        <script>
+                            var status = document.getElementById("myProgress{{item.id}}").value;
+                            if(status == "Open"){
+                            document.getElementById("myBar{{ item.id }}").className = "myBarOpen tooltiptext";
+                            document.getElementById("myBar{{ item.id }}").innerHTML= "O";
+                            document.getElementById("tooltext{{ item.id }}").innerHTML= "Open";
+                            }
+                            if(status == "In-Progress"){
+                            document.getElementById("myBar{{ item.id }}").className = "myBarInProgress";
+                            document.getElementById("myBar{{ item.id }}").innerHTML= "P";
+                            document.getElementById("tooltext{{ item.id }}").innerHTML= "In Progress";
+                            }
+                            if(status == "Complete"){
+                            document.getElementById("myBar{{ item.id }}").className = "myBarComplete";
+                            document.getElementById("myBar{{ item.id }}").innerHTML= "C";
+                            document.getElementById("tooltext{{ item.id }}").innerHTML= "Complete";
+                            }
+                        </script>
+                    </span>
+                    </td>
                     <td>{{ item.eta }}</td>
                 </tr>
                 {% endfor %}
