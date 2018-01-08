@@ -13,6 +13,7 @@
                     <th>Project</th>
                     <th>Team</th>
                     <th>Sprint</th>
+                    <th>Category</th>
                     <th>Retro Item</th>
                     <th>Action Item</th>
                     <th>Owner</th>
@@ -27,6 +28,7 @@
                     <td>{{ item.project }}</td>
                     <td>{{ item.team }}</td>
                     <td>{{ item.sprint }}</td>
+                    <td>{{ item.category }}</td>
                     <td>{{ item.description }}</td>
                     <td>{{ item.action_item }}</td>
                     <td>{{ item.owner }}</td>
@@ -62,6 +64,9 @@
                 {% endfor %}
                 </tbody>
             </table>
+        </div>
+        <div>
+            <button class="btn btn-info" onclick="javascript:exportToCSV()">Export</button>
         </div>
     </div>
 </div>

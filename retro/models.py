@@ -40,6 +40,13 @@ class Status(models.Model):
         return self.status_item
 
 
+class Category(models.Model):
+    category = models.CharField('Category', max_length=200)
+
+    def __str__(self):
+        return self.category
+
+
 class Retro(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
     team = models.ForeignKey(Team, on_delete=models.CASCADE)
@@ -49,9 +56,11 @@ class Retro(models.Model):
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE)
     status = models.ForeignKey(Status, on_delete=models.CASCADE)
     eta = models.DateField('ETA')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.description
+
 
 class Feedback(models.Model):
     name = models.CharField('Name', max_length=100)

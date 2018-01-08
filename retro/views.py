@@ -15,7 +15,7 @@ class IndexView(generic.ListView):
 
 class CreateRetro(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     model = Retro
-    fields = ['project', 'team', 'sprint', 'description', 'action_item', 'owner', 'status', 'eta']
+    fields = ['project', 'team', 'category', 'sprint', 'description', 'action_item', 'owner', 'status', 'eta']
     template_name = 'retro/create.html'
     success_url = reverse_lazy('index')
     success_message = "Retro item was created successfully"
@@ -23,7 +23,7 @@ class CreateRetro(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
 
 class UpdateRetro(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     model = Retro
-    fields = ['project', 'team', 'sprint', 'description', 'action_item', 'owner', 'status', 'eta']
+    fields = ['project', 'team', 'category', 'sprint', 'description', 'action_item', 'owner', 'status', 'eta']
     template_name = 'retro/edit.html'
     success_url = reverse_lazy('index')
     success_message = "Retro item was updated successfully"
