@@ -1,5 +1,7 @@
 $(document).ready(function() {
-    $('#retroContentTable').DataTable();
+    $('#retroContentTable').DataTable({
+        "order": [[ 8, "desc" ]]
+    });
     $( "#id_eta" ).datepicker();
 });
 

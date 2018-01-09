@@ -1,7 +1,7 @@
 {% extends 'retro/base.html' %}
 {% block content %}
 <form action="" method="post">{% csrf_token %}
-    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <p>Are you sure you want to delete "RET{{ object.id }}"?</p>
      <input type="submit" class="btn btn-danger" value="Confirm" />
 </form>
 {% endblock %}
