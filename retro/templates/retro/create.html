@@ -6,7 +6,7 @@
 {% load retro_extras %}
 
 <h3 class="form-header text-center">Create Retro</h3>
-<form method="post" class="form-horizontal" role="form">{% csrf_token %}
+<form method="post" class="form-horizontal" role="form" autocomplete="off">{% csrf_token %}
     <input type="hidden" id="id_status" name="status" value="O"/>
     <div class="form-group">
         <label for="id_project" class="col-sm-5 control-label">
@@ -46,6 +46,18 @@
     </div>
 
     <div class="form-group">
+        <label for="id_eta" class="col-sm-5 control-label">
+            ETA
+        </label>
+        <div class="col-sm-2">
+            {{ form.eta|addcss:'form-control' }}
+            <script type="text/javascript">
+                $( "#id_eta" ).datepicker();
+            </script>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="id_description" class="col-sm-5 control-label">
             Retro Item
         </label>
@@ -69,19 +81,6 @@
         </label>
         <div class="col-sm-2">
             {{ form.owner|addcss:'form-control' }}
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <label for="id_eta" class="col-sm-5 control-label">
-            ETA
-        </label>
-        <div class="col-sm-2">
-            {{ form.eta|addcss:'form-control' }}
-            <script type="text/javascript">
-                $( "#id_eta" ).datepicker();
-            </script>
         </div>
     </div>
 

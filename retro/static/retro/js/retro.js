@@ -2,7 +2,9 @@ $(document).ready(function() {
     $('#retroContentTable').DataTable({
         "order": [[ 8, "desc" ]]
     });
-    $( "#id_eta" ).datepicker();
+    $( "#id_eta" ).click(function(){
+         $( "#id_eta" ).datepicker('show');
+    });
 });
 
 function exportToCSV() {
