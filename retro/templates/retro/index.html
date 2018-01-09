@@ -19,7 +19,7 @@
                     <th>Owner</th>
                     <th>Status</th>
                     <th>ETA</th>
-                    <th>Last Modified On</th>
+                    <th>Last Modified</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -34,7 +34,9 @@
                     <td>{{ item.action_item }}</td>
                     <td>{{ item.owner }}</td>
                     <td>
-                        <div class="{{ item.status }}">{{ item.status }}</div>
+                        <a href="#" data-toggle="tooltip" title="{{ item.get_status_display }}">
+                            <div class="{{ item.status }}">{{ item.status }}</div>
+                        </a>
                     </td>
                     <td>{{ item.eta }}</td>
                     <td>{{ item.updated_on }}</td>
