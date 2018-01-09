@@ -50,7 +50,7 @@ class Retro(models.Model):
     description = models.TextField('Description', max_length=200)
     action_item = models.CharField('Action Item', max_length=200)
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE)
-    status = models.CharField(max_length=1, choices=STATUS_LIST)
+    status = models.CharField(max_length=1, choices=STATUS_LIST, default='O')
     eta = models.DateField('ETA')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_on = models.DateTimeField('Created On', auto_now_add=True)
