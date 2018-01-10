@@ -18,6 +18,10 @@ class CreateRetro(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     success_url = reverse_lazy('index')
     success_message = "Retro item was created successfully"
 
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super(CreateRetro, self).form_valid(form)
+
 
 class UpdateRetro(LoginRequiredMixin, SuccessMessageMixin, generic.UpdateView):
     model = Retro

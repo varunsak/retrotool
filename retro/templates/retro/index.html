@@ -19,6 +19,7 @@
                     <th>Owner</th>
                     <th>Status</th>
                     <th>ETA</th>
+                    <th>Created By</th>
                     <th>Last Modified</th>
                 </tr>
                 </thead>
@@ -39,6 +40,7 @@
                         </a>
                     </td>
                     <td>{{ item.eta }}</td>
+                    <td>{{ item.created_by}}</td>
                     <td>{{ item.updated_on }}</td>
                 </tr>
                 {% endfor %}
