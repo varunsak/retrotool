@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#retroContentTable').DataTable({
-        "order": [[ 8, "desc" ]]
+        "bSort": false
     });
 
     $( "#id_eta" ).click(function(){
@@ -12,6 +12,8 @@ $(document).ready(function() {
     });
 
     $('[data-toggle="tooltip"]').tooltip();
+
+    $('#retroContentTable').excelTableFilter();
 
 });
 
