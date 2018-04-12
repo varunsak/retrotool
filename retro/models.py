@@ -43,6 +43,11 @@ STATUS_LIST = (
     ('C', 'Complete'),
 )
 
+RETRO_TYPE = (
+    ('T', 'Team'),
+    ('L', 'Leadership'),
+)
+
 
 class Retro(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
@@ -51,6 +56,7 @@ class Retro(models.Model):
     description = models.TextField('Description', max_length=200)
     action_item = models.CharField('Action Item', max_length=200)
     owner = models.ForeignKey(Owner, on_delete=models.CASCADE)
+    retro_type = models.CharField(max_length=1, choices=RETRO_TYPE, default='T')
     status = models.CharField(max_length=1, choices=STATUS_LIST, default='O')
     eta = models.DateField('ETA')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)

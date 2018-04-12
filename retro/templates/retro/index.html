@@ -16,6 +16,7 @@
                     <th>Category</th>
                     <th>Retro Item</th>
                     <th>Action Item</th>
+                    <th>Retro Type</th>
                     <th>Owner</th>
                     <th width="75px">Status</th>
                     <th>ETA</th>
@@ -33,6 +34,7 @@
                     <td>{{ item.category }}</td>
                     <td>{{ item.description }}</td>
                     <td>{{ item.action_item }}</td>
+                    <td>{{ item.get_retro_type_display }}</td>
                     <td>{{ item.owner }}</td>
                     <td>
                         <a href="#" data-toggle="tooltip" data-placement="left" title="{{ item.get_status_display }}">
