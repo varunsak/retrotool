@@ -1,9 +1,12 @@
 # Text backup files
 *.bak
 
-#Database
+# Database
 *.sqlite3
 
 # Python cache
 __pycache__
 .pyc
+
+# Migrations
+migrations
