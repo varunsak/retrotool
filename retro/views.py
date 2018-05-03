@@ -5,7 +5,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from .models import *
 
 
-class IndexView(generic.ListView):
+class IndexView(LoginRequiredMixin, generic.ListView):
     template_name = 'retro/index.html'
     context_object_name = 'retro_list'
     queryset = Retro.objects.order_by('-status', '-updated_on')
