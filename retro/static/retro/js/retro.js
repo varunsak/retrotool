@@ -1,8 +1,4 @@
 $(document).ready(function() {
-    /*$('#retroContentTable').DataTable({
-        "bSort": false
-    });*/
-
     $( "#id_eta" ).click(function(){
         $( "#id_eta" ).datepicker('show');
     });
@@ -13,18 +9,27 @@ $(document).ready(function() {
 
     $('[data-toggle="tooltip"]').tooltip();
 
-    /*$('#retroContentTable').excelTableFilter();*/
+    var table = $('#retroContentTable').DataTable( {
+        "order": [],
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                text: 'Create',
+                action: function ( e, dt, node, config ) {
+                    window.location.href = '/create';
+                }
+            }
+        ]
+    } );
 
-    $('#retroContentTable').dataTable({
-        /* No ordering applied by DataTables during initialisation */
-        "order": []
-    });
+    new $.fn.dataTable.Buttons( table, {
+        buttons: [
+            { extend: 'csv', text: 'Export' }
+        ]
+    } );
+
+    table.buttons( 1, null ).container().appendTo(
+        table.table().container()
+    );
 
 });
-
-function exportToCSV() {
-    $('#retroContentTable').tableExport({
-        fileName: 'RetroReport',
-        type:'csv'
-    });
-}

@@ -1,57 +1,45 @@
 {% extends 'retro/base.html' %}
 {% block content %}
-<div class="row">
-    <div class="col-md-12">
-        <div>
-            <a href="{% url 'create' %}" class="btn btn-info" role="button">Create</a>
-        </div>
-        <div style="margin-top: 30px;">
-            <table class="table table-hover table-bordered retroContentHover" id="retroContentTable">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Project</th>
-                    <th>Team</th>
-                    <th>Sprint</th>
-                    <th>Category</th>
-                    <th>Retro Item</th>
-                    <th>Action Item</th>
-                    <th>Retro Type</th>
-                    <th>Owner</th>
-                    <th width="75px">Status</th>
-                    <th>ETA</th>
-                    <th>Created By</th>
-                    <th>Last Modified</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for item in retro_list %}
-                <tr>
-                    <td><a href="{% url 'edit' item.id %}">RET{{ item.id }}</a></td>
-                    <td>{{ item.project }}</td>
-                    <td>{{ item.team }}</td>
-                    <td>{{ item.sprint }}</td>
-                    <td>{{ item.category }}</td>
-                    <td>{{ item.description }}</td>
-                    <td>{{ item.action_item }}</td>
-                    <td>{{ item.get_retro_type_display }}</td>
-                    <td>{{ item.owner }}</td>
-                    <td>
-                        <a href="#" data-toggle="tooltip" data-placement="left" title="{{ item.get_status_display }}">
-                            <div class="{{ item.status }}">{{ item.status }}</div>
-                        </a>
-                    </td>
-                    <td>{{ item.eta }}</td>
-                    <td>{{ item.created_by}}</td>
-                    <td>{{ item.updated_on }}</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <div>
-            <button class="btn btn-info" onclick="javascript:exportToCSV()">Export</button>
-        </div>
-    </div>
-</div>
+<table class="table table-hover table-bordered retroContentHover" id="retroContentTable">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Team</th>
+        <th>Sprint</th>
+        <th>Category</th>
+        <th>Retro Item</th>
+        <th>Action Item</th>
+        <th>Retro Type</th>
+        <th>Owner</th>
+        <th width="75px">Status</th>
+        <th>ETA</th>
+        <th>Created By</th>
+        <th>Last Modified</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in retro_list %}
+    <tr>
+        <td><a href="{% url 'edit' item.id %}">RET{{ item.id }}</a></td>
+        <td>{{ item.project }}</td>
+        <td>{{ item.team }}</td>
+        <td>{{ item.sprint }}</td>
+        <td>{{ item.category }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.action_item }}</td>
+        <td>{{ item.get_retro_type_display }}</td>
+        <td>{{ item.owner }}</td>
+        <td>
+            <a href="#" data-toggle="tooltip" data-placement="left" title="{{ item.get_status_display }}">
+                <div class="{{ item.status }}">{{ item.status }}</div>
+            </a>
+        </td>
+        <td>{{ item.eta }}</td>
+        <td>{{ item.created_by}}</td>
+        <td>{{ item.updated_on }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
